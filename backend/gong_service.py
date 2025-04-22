@@ -20,7 +20,6 @@ class GongService:
         if not call_date:
             call_date = datetime.now().strftime("%Y-%m-%d")
 
-        # First, find the call ID
         url = "https://us-5738.api.gong.io/v2/calls"
         from_datetime = f"{call_date}T00:00:00Z"
         to_datetime = f"{call_date}T23:59:59Z"
