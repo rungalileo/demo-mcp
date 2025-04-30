@@ -30,7 +30,7 @@ from tools.get_latest_call_date_for_customer import register_get_latest_call_dat
 from tools.list_customer_calls import register_list_customer_calls
 from tools.get_customer_use_case import register_get_customer_use_case
 from tools.get_next_steps import register_get_next_steps
-
+from tools.get_company_champions import register_get_company_champions
 # Register all tools with the single MCP instance
 register_analyze_customer_call(mcp)
 register_get_deals(mcp)
@@ -38,6 +38,7 @@ register_get_latest_call_date_for_customer(mcp)
 register_list_customer_calls(mcp)
 register_get_customer_use_case(mcp)
 register_get_next_steps(mcp)
+register_get_company_champions(mcp)
 
 if __name__ == "__main__":
     try:
