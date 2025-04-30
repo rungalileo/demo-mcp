@@ -1,9 +1,9 @@
 import requests
 from datetime import datetime
-from app.core.config import settings
+from core.config import settings
 from typing import List, Dict, Any, Optional
 import concurrent.futures
-from app.services.llm_service import ask_openai
+from services.llm_service import ask_openai
 from colorama import Fore, Style, init
 
 init()

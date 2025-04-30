@@ -5,7 +5,7 @@ from typing import Optional, Dict, Any, List
 import anthropic
 import os
 from dotenv import load_dotenv
-from gong_service import GongService
+from backend.reference_code.gong_service import GongService
 from datetime import datetime
 import requests
 import json

@@ -1,5 +1,5 @@
-from app.services.llm_service import ask_anthropic
-from app.utils.prompts import company_name_prompt
+from services.llm_service import ask_anthropic
+from prompts import company_name_prompt
 
 def extract_company_name(call_title):
     """Extract company name from call title"""

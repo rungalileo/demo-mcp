@@ -1,3 +1,31 @@
+
+analyze_customer_call_prompt = """
+    Analyze the buyer sentiment from this transcript. 
+    Return the intent, and a 1-2 line explanation in JSON.
+    Intent options: 
+    Less likely to buy, 
+    Neutral, 
+    Unsure, 
+    Likely to buy, 
+    Very likely to buy
+    
+    If there is any explicit frustration, hesitation, or uncertainty in buying - choose Less likely to buy.
+    Choose 'Very likely to buy' only if there is strong interest from the buyer 
+    i.e. they mention they love the product.
+
+    Strictly return raw JSON with 2 fields: buyer_intent and explanation, no other surrounding text.
+
+    In the explanation text, include why the buyer is feeling that way.
+
+    Format the explanation as a single string.
+    Please provide your response without using markdown formatting like **, ##.
+    Keep each section brief and only include information explicitly mentioned in the transcript.
+
+    -- STARTTRANSCRIPT --
+    {full_transcript}
+    -- END TRANSCRIPT --
+"""
+
 champion_prompt = """
     You are a smart Sales Operations Analyst that analyzes Sales calls.
     You are given a transcript of what a potential buyer of Galileo said.
@@ -8,8 +36,8 @@ champion_prompt = """
     For the explanation, be specific to this peron's thoughts, comments or feelings (whether they are positive or negative).
 
     DEFINITION OF BUSINESS PAIN:
-    Business Pain or Problem is generally derived from some technical limitations, gaps, or problems which leads to something that generally negatively impacts the business
-    This problem is something that the product hoepfully solves.
+    Business Pain refers to the challenges mentioned by the buyer (around LLM or Gen AI Evaluation and Observability)
+    It could be a technical challenge, process challenge, or business challenge.
 
     Analyze the transcript and strictly return a JSON with the following fields:
     - champion: true or false (use lowercase, JSON boolean values)
@@ -26,6 +54,18 @@ champion_prompt = """
     {transcript}
 
     STRICTLY return the JSON, nothing else. Use proper JSON boolean values (true/false, not True/False).
+"""
+
+business_pain_prompt = """
+    Analyze this transcript and extract the challenges mentioned.
+    Challenges can be business or technical.
+    Return a JSON array of pain points, where each pain point is a string.
+    Do not include the keyword 'json' in your response, return the array directly.
+    
+    Transcript:
+    {full_transcript}
+
+    Return only the JSON array of pain points, nothing else.
 """
 
 company_name_prompt = """

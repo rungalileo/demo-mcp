@@ -1,7 +1,9 @@
 anthropic
+openai
 fastapi
 uvicorn
 python-dotenv
 pydantic
 requests
 mcp
+redis
